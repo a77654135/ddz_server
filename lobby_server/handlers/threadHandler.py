@@ -1,7 +1,7 @@
 # coding:utf-8
 
-import tornado.httpserver
+import tornado.web
 
-class ThreadHandler(tornado.httpserver.HTTPRequest):
-    def get(self):
-        pass
+class ThreadHandler(tornado.web.RequestHandler):
+    def post(self):
+        self.application
