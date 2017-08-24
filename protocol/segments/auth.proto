@@ -1,0 +1,48 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 身份验证相关消息
+// (注册，登录，修改密码,获取)
+//import "root.proto";
+//package VGFishProto;
+
+
+//
+//      请求
+//
+extend Request {
+    optional AuthRequest authRequest = 11;
+}
+message AuthRequest {
+    extensions 10 to max;
+}
+//
+//      响应
+//
+extend Response {
+    optional AuthResponse authResponse = 11;
+}
+message AuthResponse{
+    extensions 10 to max;
+}
+
+//
+//      请求
+//
+extend AuthRequest {
+    optional UserLoginRequest userLogin = 13;
+}
+
+//
+//      响应
+//
+extend AuthResponse {
+    optional UserLoginResponse userLoginResponse = 13;
+}
+
+//用户登录或者注册
+message UserLoginRequest {
+    optional string accountName = 1;    //用户名,不允许重复
+    optional string password = 2;       //密码明文方式
+}
+message UserLoginResponse {
+    optional string token = 2;               // 用户标识
+}

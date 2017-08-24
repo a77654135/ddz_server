@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 基础消息
+
+package DDZProto;
+
+enum ErrorCode{
+    E_Success                   =           0;      //成功
+    E_Unknown                   =           1;      //未知
+    E_WrongUrl                  =           2;      //错误的url
+    E_NotSupportXHR             =           3;      //不支持XHR
+
+    //0x10000开头的，使用弹窗
+    E_AccountNotExist           =           0x10001; //帐号不存在
+
+    //0x20000开头的，使用toast
+    E_MoneyNotEnough            =           0x20001; //金币不足
+
+    //0x30000开头的，刷新游戏
+    E_TokenInvalid              =           0x30001; //错误的token
+
+    //0x40000开头的，忽略错误
+    E_Others                    =           0x40001; //其他错误
+}
+
+message DDZMessage {
+    optional Request    request     = 1;
+    optional Response   response    = 2;
+    optional Notify     notify      = 3;
+}
+
+message Request {
+    optional    uint32          serial       = 1;
+    extensions 10 to max;
+}
+
+message Response {
+    optional uint32             serial       = 1;
+    required ErrorCode          errorCode    = 2;
+    optional string             errorMessage = 3;
+    optional double             coin         = 4;    // 当前最新金币数
+    extensions 10 to max;
+}
+
+message Notify {
+    extensions 10 to max;
+}
