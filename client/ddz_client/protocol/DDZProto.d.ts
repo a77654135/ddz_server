@@ -17,7 +17,7 @@ export interface ExtensionFieldInfo {
 export interface Message {
 }
 }
-declare module proto.VGFishProto{
+declare module proto.DDZProto{
 	export const enum ErrorCode {
 		E_Success = 0,
 		E_Unknown = 1,

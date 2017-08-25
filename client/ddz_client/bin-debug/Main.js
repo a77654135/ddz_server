@@ -200,6 +200,20 @@ var Main = (function (_super) {
         button.verticalCenter = 0;
         this.addChild(button);
         button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
+        var message = new proto.DDZProto.Request();
+        var authRequest = new proto.DDZProto.AuthRequest();
+        var loginRequest = new proto.DDZProto.UserLoginRequest();
+        loginRequest.setAccountname("www");
+        loginRequest.setPassword("ddd");
+        authRequest.setExtension(proto.DDZProto.userlogin, loginRequest);
+        message.setExtension(proto.DDZProto.authrequest, authRequest);
+        message.setSerial(1);
+        //var message = "aaa";
+        var req = new egret.HttpRequest();
+        req.open("http://127.0.0.1:9000/ddz/thread/", egret.HttpMethod.POST);
+        //req.setRequestHeader()
+        req.send(message);
+        console.log(message);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

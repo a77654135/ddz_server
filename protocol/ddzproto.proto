@@ -52,7 +52,7 @@ message Notify {
 // 身份验证相关消息
 // (注册，登录，修改密码,获取)
 //import "root.proto";
-//package VGFishProto;
+//package DDZProto;
 
 
 //

@@ -7,7 +7,9 @@
 		"libs/modules/tween/tween.js",
 		"libs/modules/socket/socket.js",
 		"libs/modules/dragonBones/dragonBones.js",
-		"promise/bin/promise.js"
+		"promise/bin/promise.js",
+		"protocol/google-protobuf.js",
+		"protocol/ddzproto.js"
 	],
 	"game": [
 		"bin-debug/AssetAdapter.js",
